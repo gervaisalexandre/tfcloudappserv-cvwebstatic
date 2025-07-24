@@ -10,11 +10,8 @@ resource "azurerm_service_plan" "plan" {
   resource_group_name = data.azurerm_resource_group.existing.name
   kind                = "Linux"
   reserved            = true
-
-  sku {
-    tier = "Free"
-    size = "F1"
-  }
+  sku_name = "F1"   # <-- obligatoire et unique
+  os_type  = "Linux"
 }
 
 # ✅ Mise à jour de la référence vers le nouveau service plan
