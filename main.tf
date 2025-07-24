@@ -8,7 +8,7 @@ resource "azurerm_service_plan" "plan" {
   name                = "${var.app_name}-plan"
   location            = data.azurerm_resource_group.existing.location
   resource_group_name = data.azurerm_resource_group.existing.name
-  sku_name = "F1"   # <-- obligatoire et unique
+  sku_name = "P1v1"   # <-- obligatoire et unique
   os_type  = "Linux"
 }
 
@@ -19,12 +19,6 @@ resource "azurerm_linux_web_app" "app" {
   resource_group_name = data.azurerm_resource_group.existing.name
   service_plan_id     = azurerm_service_plan.plan.id
 
-  site_config_linux_fx_version = "NODE|18-lts"
-
-  app_settings = {
-    WEBSITE_RUN_FROM_PACKAGE = "1"
-  }
-
-  https_only = true
+  site_config {}
 }
 
