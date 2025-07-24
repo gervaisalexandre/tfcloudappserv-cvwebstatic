@@ -9,3 +9,9 @@ variable "location" {
 variable "app_name" {
   default = "tsala-cv-html-app"
 }
+
+variable "ARM_CLIENT_SECRET" {
+  description = "Secret client Azure"
+  type        = string
+  sensitive   = true
+}
