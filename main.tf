@@ -22,3 +22,11 @@ resource "azurerm_linux_web_app" "app" {
   site_config {}
 }
 
+# 🔗 Lien automatique avec dépôt GitHub (déploiement continu)
+resource "azurerm_app_service_source_control" "github_link" {
+  app_id                  = azurerm_linux_web_app.app.id
+  repo_url                = "https://github.com/gervaisalexandre/cvwebstatic"
+  branch                  = "main"
+  use_manual_integration  = false
+  use_mercurial           = false
+}
