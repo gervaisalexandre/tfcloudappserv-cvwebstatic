@@ -8,8 +8,6 @@ resource "azurerm_service_plan" "plan" {
   name                = "${var.app_name}-plan"
   location            = data.azurerm_resource_group.existing.location
   resource_group_name = data.azurerm_resource_group.existing.name
-  kind                = "Linux"
-  reserved            = true
   sku_name = "F1"   # <-- obligatoire et unique
   os_type  = "Linux"
 }
