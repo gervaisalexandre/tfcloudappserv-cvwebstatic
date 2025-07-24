@@ -19,9 +19,7 @@ resource "azurerm_linux_web_app" "app" {
   resource_group_name = data.azurerm_resource_group.existing.name
   service_plan_id     = azurerm_service_plan.plan.id
 
-  site_config {
-    linux_fx_version = "NODE|18-lts"
-  }
+  site_config_linux_fx_version = "NODE|18-lts"
 
   app_settings = {
     WEBSITE_RUN_FROM_PACKAGE = "1"
@@ -29,3 +27,4 @@ resource "azurerm_linux_web_app" "app" {
 
   https_only = true
 }
+
