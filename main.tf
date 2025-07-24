@@ -5,7 +5,7 @@ data "azurerm_resource_group" "existing" {
 
 resource "azurerm_app_service_plan" "plan" {
   name = "${var.app_name}-plan"
-  location = data.azurerm_resoure_group.exixting.location
+  location = data.azurerm_resoure_group.existing.location
   resource_group_name = data.azurerm_resource_group.existing.name
   kind = "Linux"
   reserved = true
